@@ -44,49 +44,126 @@ Template PHP (header, footer)
 
 👤 Người 2: Backend (PHP xử lý logic)
 
-👉 Phù hợp người mạnh PHP
+Người 2 – Backend (Xử lý logic PHP)
 
-Công việc chính:
+Vai trò:
+Phụ trách xây dựng toàn bộ hệ thống xử lý phía server (Backend), chịu trách nhiệm về logic nghiệp vụ, bảo mật, kết nối cơ sở dữ liệu và cung cấp dữ liệu cho frontend.
 
-Xây dựng cấu trúc project PHP (MVC nếu có)
+1. Xây dựng cấu trúc dự án
 
-Chức năng:
+Thiết kế cấu trúc project PHP theo mô hình MVC (Model – View – Controller) ở mức cơ bản.
 
-Đăng ký / đăng nhập / đăng xuất
+Phân tách rõ ràng các thành phần xử lý nghiệp vụ, truy vấn cơ sở dữ liệu và giao diện.
 
-Phân quyền: admin – user
+Cấu trúc đề xuất:
 
-CRUD phim (thêm – sửa – xóa – xem)
+app/
+ ├── controllers/
+ ├── models/
+ ├── views/
+ ├── config/
+ └── helpers/
 
-Upload video / link phim
+2. Chức năng xác thực và phân quyền người dùng
 
-Tìm kiếm & lọc phim
+Xây dựng chức năng đăng ký, đăng nhập, đăng xuất người dùng.
 
-Xử lý bảo mật:
+Mật khẩu được mã hóa bằng các thuật toán hash đảm bảo an toàn.
 
-Hash mật khẩu
+Quản lý phiên đăng nhập bằng Session.
 
-Validate form
+Phân quyền người dùng:
 
-Kết nối CSDL (MySQL + PDO)
+Admin: Quản lý phim (thêm, sửa, xóa).
 
-Công nghệ:
+User: Xem phim và tìm kiếm phim.
 
-PHP thuần / PHP MVC
+Kiểm soát quyền truy cập, đảm bảo người dùng không truy cập trái phép các chức năng quản trị.
 
-MySQL
+3. Quản lý phim (CRUD)
 
-PDO / MySQLi
+Xây dựng các chức năng:
 
-Session / Cookie
+Thêm phim mới
 
-Sản phẩm bàn giao:
+Chỉnh sửa thông tin phim
 
-Source code backend
+Xóa phim
 
-API / hàm xử lý dữ liệu
+Hiển thị danh sách phim
 
-👤 Người 3: Database + Admin + Nội dung & Test
+Lưu trữ thông tin phim trong cơ sở dữ liệu MySQL.
+
+Tăng lượt xem mỗi khi người dùng truy cập trang xem phim.
+
+4. Upload và quản lý video
+
+Hỗ trợ upload video phim hoặc nhập link phim.
+
+Kiểm tra và giới hạn định dạng file video cho phép.
+
+Giới hạn dung lượng file upload.
+
+Đổi tên file trước khi lưu để tránh trùng lặp và tăng tính bảo mật.
+
+5. Tìm kiếm và lọc phim
+
+Xây dựng chức năng tìm kiếm phim theo tên.
+
+Hỗ trợ lọc phim theo tiêu chí (thể loại, lượt xem…).
+
+Tối ưu truy vấn để đảm bảo hiệu năng hệ thống.
+
+6. Kết nối và xử lý cơ sở dữ liệu
+
+Kết nối cơ sở dữ liệu MySQL bằng PDO.
+
+Sử dụng Prepared Statement để chống SQL Injection.
+
+Xử lý lỗi khi truy vấn hoặc kết nối cơ sở dữ liệu.
+
+7. Xử lý bảo mật và kiểm tra dữ liệu
+
+Validate dữ liệu đầu vào từ form (rỗng, sai định dạng).
+
+Lọc và làm sạch dữ liệu người dùng nhập vào.
+
+Ngăn chặn các lỗ hổng bảo mật phổ biến như SQL Injection, XSS.
+
+Thiết lập session timeout và xử lý logout an toàn.
+
+8. Xây dựng các hàm và API nội bộ
+
+Xây dựng các hàm xử lý nghiệp vụ backend như:
+
+Kiểm tra đăng nhập
+
+Kiểm tra quyền admin
+
+Tìm kiếm phim
+
+Lấy thông tin phim theo ID
+
+Cập nhật lượt xem
+
+Các hàm được tổ chức riêng biệt, dễ bảo trì và mở rộng.
+
+9. Logging và xử lý lỗi
+
+Ghi log các hoạt động quan trọng như đăng nhập và thao tác quản lý phim.
+
+Xử lý lỗi hệ thống và hiển thị thông báo thân thiện cho người dùng.
+
+10. Sản phẩm bàn giao
+
+Source code backend PHP hoàn chỉnh.
+
+Cơ sở dữ liệu MySQL và file script tạo bảng.
+
+Các hàm xử lý nghiệp vụ backend.
+
+Tài liệu mô tả chức năng backend phục vụ tích hợp frontend.
+ Database + Admin + Nội dung 
 
 👉 Phù hợp người cẩn thận, logic
 
